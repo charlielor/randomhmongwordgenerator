@@ -4,15 +4,40 @@
     <link rel="stylesheet" type="text/css" href="index.css" />
 </head>
 <body>
+
+    <div id="description" class="centerNoTextAlign">
+        This is a random Hmong word generator (words generated may not be an actual Hmong word) base on these facts:
+
+        <div>
+            <ul>
+                <li>Monosyllabic - All Hmong words are one syllable</li>
+                <li>Algorithm to derive most Hmong RPA word: (consonant) + (vowel) + (tone)</li>
+                <li>Many consonants (single, double, triple, quad), not so many vowels (single, double), 8 tones</li>
+            </ul>
+        </div>
+
+    </div>
+
     <div id="word" class="center">
-        <div id="consonant" class="letters">K</div>
-        <div id="vowel" class="letters">O</div>
-        <div id="tone" class="letters">J</div>
+        <div id="consonant" class="letters"></div>
+        <div id="vowel" class="letters"></div>
+        <div id="tone" class="letters"></div>
+
 
         <input type="button" value="Generate" id="generate" class="center" />
+        <span id="bold">An underline (_) signifies that there is no letter(s) (empty)</span>
     </div>
 
     <div id="definition"></div>
+
+    <div id="thingsToDo" class="centerNoTextAlign">
+        // TODO
+        <ul>
+            <li>Link each letter to an appropriate sound byte to help pronounce the letter</li>
+            <li>Allow the user to click on the word to find the definition</li>
+            <li>...</li>
+        </ul>
+    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script type="text/javascript" src="index.js"></script>

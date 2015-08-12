@@ -13,6 +13,13 @@
     font-family: sans-serif;
 }
 
+#description {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 750px;
+}
+
 #word {
     margin-top: 5em;
 }
@@ -27,4 +34,14 @@
     background: #3184b0;
     padding: 10px 20px 10px 20px;
     text-decoration: none;
+    margin-bottom: 2em;
+}
+
+#bold {
+    font-weight: bold;
+}
+
+#thingsToDo {
+    margin-top: 5em;
+    font-size: 10px;
 }
