@@ -19,25 +19,39 @@
     </div>
 
     <div id="word" class="center">
-        <div id="consonant" class="letters">H</div>
-        <div id="vowel" class="letters">i</div>
-        <div id="tone" class="letters"> :)</div>
+        <div id="consonantBlock" class="letters">
+            <div id="consonant">H</div>
+        </div>
+        <div id="vowelBlock" class="letters">
+            <div id="vowel">i</div>
+        </div>
+        <div id="toneBlock" class="letters">
+            <div id="tone">:)</div>
+        </div>
 
 
         <input type="button" value="Generate" id="generate" class="center" />
-        <span id="bold">An underline (_) signifies that there is no letter(s) (empty)</span>
+        <span class="bold">An underline (_) signifies that there is no letter(s) (empty)</span>
+        <span class="bold">Hover over letter(s) for hints</span>
     </div>
 
     <div id="definition"></div>
 
     <div id="thingsToDo" class="centerNoTextAlign">
-        // TODO
+        <span id="todo">// TODO</span>
         <ul>
+            <li>Don't use hover to show pictures (bad for mobile devices) (08/26/2015)</li>
+            <li>Do vowel images (08/26/2015)</li>
+            <br />
             <li>Link each letter to an appropriate sound byte to help pronounce the letter</li>
             <li>Allow the user to click on the word to find the definition</li>
             <li>...</li>
         </ul>
     </div>
+
+    <img id="consonantImage" src="" />
+    <img id="vowelImage" src="" />
+    <img id="toneImage" src="" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script type="text/javascript" src="index.js"></script>

@@ -3,12 +3,20 @@ $(document).ready(function() {
     var vowels = [];
     var tones = [];
 
+    var consonantBlock = $("#consonantBlock");
     var consonant = $("#consonant");
-    var vowel = $("#vowel");
-    var tone = $("#tone");
+    var consonantImage = $("#consonantImage");
 
+    var vowelBlock = $("#vowelBlock");
+    var vowel = $("#vowel");
+    var vowelImage = $("#vowelImage");
+
+    var toneBlock = $("#toneBlock");
+    var tone = $("#tone");
+    var toneImage = $("#toneImage");
 
     var generateButton = $("#generate");
+    var generated = false;
 
     $.getJSON("config/letters.json", function(letters) {
 
@@ -36,14 +44,59 @@ $(document).ready(function() {
 
     });
 
+    consonant.hover(function() {
+        if (getImage("consonant", consonant.text().toLowerCase())) {
+            $(document).mousemove(function(event) {
+                consonantImage.show();
+                consonantImage.css({
+                    "position":"absolute",
+                    "left":event.clientX ,
+                    "top":event.clientY
+                });
+            });
+
+        }
+        }, function() {
+            $(document).unbind("mousemove");
+            consonantImage.hide();
+        }
+    );
+
+
+    vowel.mouseover(function() {
+        console.log(vowel.text());
+    });
+
+    tone.hover(function() {
+        if (getImage("tone", tone.text().toLowerCase())) {
+            $(document).mousemove(function(event) {
+                toneImage.show();
+                toneImage.css({
+                    "position":"absolute",
+                    "left":event.clientX ,
+                    "top":event.clientY
+                });
+            });
+
+        }
+        }, function() {
+            $(document).unbind("mousemove");
+            toneImage.hide();
+        }
+    );
+
 
     generateButton.on("click", function() {
-        consonant.css("margin-right", "50px");
-        vowel.css("margin-left", "50px");
-        vowel.css("margin-right", "50px");
-        tone.css("margin-left", "50px");
+        consonantBlock.css("margin-right", "50px");
+        vowelBlock.css("margin-left", "50px");
+        vowelBlock.css("margin-right", "50px");
+        toneBlock.css("margin-left", "50px");
 
         var count = 0;
+
+        if (!generated) {
+            generated = true;
+        }
 
         var randomInterval = setInterval(function() {
             consonant.text(consonants[randomInt(consonants.length)]);
@@ -54,10 +107,10 @@ $(document).ready(function() {
 
             if (count == 100) {
                 window.clearInterval(randomInterval);
-                consonant.css("margin-right", "0px");
-                vowel.css("margin-left", "0px");
-                vowel.css("margin-right", "0px");
-                tone.css("margin-left", "0px");
+                consonantBlock.css("margin-right", "0px");
+                vowelBlock.css("margin-left", "0px");
+                vowelBlock.css("margin-right", "0px");
+                toneBlock.css("margin-left", "0px");
             }
         }, 1);
 
@@ -71,6 +124,26 @@ $(document).ready(function() {
 
     function randomInt(num) {
         return (Math.floor(Math.random() * num));
+    }
+
+    function getImage(type, letter) {
+        if (generated) {
+            switch (type) {
+                case "consonant":
+                    consonantImage.attr("src", "images/consonants/" + letter + ".png");
+                    return (consonantImage != null);
+                    break;
+                case "vowel":
+                    break;
+                case "tone":
+                    toneImage.attr("src", "images/tones/" + letter + ".png");
+                    return (toneImage != null);
+                    break;
+                default:
+                    console.log("Can't load image because type is invalid");
+                    break;
+            }
+        }
     }
 
     function generateWord() {

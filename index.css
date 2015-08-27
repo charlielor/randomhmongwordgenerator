@@ -1,3 +1,12 @@
+img {
+    display: none;
+}
+
+.bold {
+    font-weight: bold;
+    display: block;
+}
+
 .center {
     display: block;
     margin-left: auto;
@@ -24,6 +33,14 @@
     margin-top: 5em;
 }
 
+#consonantImage {
+    width: 200px;
+}
+
+#toneImage {
+    /*height: 50%;*/
+}
+
 #generate {
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -37,8 +54,8 @@
     margin-bottom: 2em;
 }
 
-#bold {
-    font-weight: bold;
+#todo {
+    color: darkgreen;
 }
 
 #thingsToDo {
